@@ -5,7 +5,7 @@
 		<meta name="author" content="rubio_n">
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-		<link rel="stylesheet" href="css/connect.css" />
+		<link rel="stylesheet" href="css/style.css" />
 		<script type="text/javascript" src="js/js.js"></script>
 		
 	</head>

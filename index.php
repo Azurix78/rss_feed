@@ -3,7 +3,7 @@
 class frontcontrol
 {
 
-	public function controlinit()
+	public function controler_selecter()
 	{
 		if(isset($_GET['c']))
 		{
@@ -33,15 +33,15 @@ class frontcontrol
 		}
 	}
 
-	public function display($page)
+	public function display($view)
 	{
 		require_once('core/view/header.php');
-		require_once('core/view/' . $page . '.php');
+		require_once('core/view/' . $view . '.php');
 		require_once('core/view/footer.php');
 	}
 }
 
 $init = new frontcontrol();
-$init->controlinit();
+$init->controler_selecter();
 
 ?>
