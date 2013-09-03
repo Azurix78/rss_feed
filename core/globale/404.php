@@ -1,0 +1,1 @@
+<img style="width:100%;" src="img/404.png" alt="404">
