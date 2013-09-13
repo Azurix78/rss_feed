@@ -1,10 +1,12 @@
 <?php
+
 class home
 {
-	public function lire()
+	public function view()
 	{
-		$obj = new frontcontrol();
-		$obj->display('home');
+		require_once('core/model/display.class.php');
+		$view = new display();
+		$view->show('home');	
 	}
 }
 ?>

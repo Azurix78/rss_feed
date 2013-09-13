@@ -1,47 +1,59 @@
 <?php
 
-class frontcontrol
-{
+define('ROOT', "/rss_feed/");
 
-	public function controler_selecter()
+function my_autoloader($class)
+{
+    if(file_exists('core/controler/'.$class.'.class.php'))
 	{
-		if(isset($_GET['c']))
+    	require_once('core/controler/' .$class.'.class.php');
+    }
+    elseif(file_exists('core/model/'.$class.'.class.php'))
+    {
+    	require_once('core/model/'.$class.'.class.php');
+    }
+}
+
+spl_autoload_register('my_autoloader');
+
+
+
+$controler =& $_GET['c'];
+$method =& $_GET['m'];
+
+session_start();
+
+if(isset($controler))
+{
+	if(file_exists('core/controler/'.$controler.'.class.php') AND isset($_SESSION['id']) )
+	{
+		$page = new $controler();
+
+		if(isset($method) AND method_exists($page, $method))
 		{
-			if(file_exists('core/controler/' . $_GET['c'] . '.class.php'))
-			{
-				require_once('core/controler/' . $_GET['c'] . '.class.php');
-				$page = new $_GET['c']();
-				if(isset($_GET['m']) AND method_exists($page, $_GET['m']))
-				{
-					$page->$_GET['m']();
-				}
-				else
-				{
-					$page->lire();
-				}
-			}
-			else
-			{
-				$this->display('er404');
-			}
+			$page->$method();
 		}
 		else
 		{
-			require_once('core/controler/home.class.php');
-			$page = new home();
-			$page->lire();
+			$page->view();
 		}
 	}
-
-	public function display($view)
+	elseif(file_exists('core/controler/'.$controler.'.class.php') AND !isset($_SESSION['id']))
 	{
-		require_once('core/view/header.php');
-		require_once('core/view/' . $view . '.php');
-		require_once('core/view/footer.php');
+		$page = new connect();
+		if(isset($method) AND method_exists($page, $method))
+		{
+			$page->$method();
+		}
+		else
+		{
+			$page->signin();
+		}
+	}
+	else
+	{
+		$page = new er404();
+		$page->view();
 	}
 }
-
-$init = new frontcontrol();
-$init->controler_selecter();
-
 ?>

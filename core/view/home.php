@@ -1,1 +1,1 @@
-<p>LOLOLOL</p>
+<p>vous êtes bien sur la page HOME.</p>

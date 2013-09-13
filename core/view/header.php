@@ -17,9 +17,9 @@
 
 			<div id="h_link">
 				<ul>
-					<li><a href="#">Accueil</a></li>
-					<li><a href="#">Gestion</a></li>
-					<li><a href="#">Mes Flux</a></li>
+					<li><a href="home">Accueil</a></li>
+					<li><a href="gestion">Gestion</a></li>
+					<li><a href="flux">Mes Flux</a></li>
 				</ul>
 			</div>
 		</nav>
