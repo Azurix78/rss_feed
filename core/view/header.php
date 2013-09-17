@@ -16,14 +16,14 @@
 			</div>
 
 			<div id="logout" onclick="deco('logout')" onmouseout="leavedeco('logout')">
-				<p>Bienvenue <?php echo $_SESSION['pseudo'];?></p>
+				<p>• Bienvenue <?php echo $_SESSION['pseudo'];?></p>
 			</div>
 
 
 			<div id="h_link">
 				<ul>
 					<li><a href="<?php echo ROOT;?>home">Accueil</a></li>
-					<li><a href="<?php echo ROOT;?>gestion">Gestion</a></li>
+					• <li><a href="<?php echo ROOT;?>gestion">Gestion</a></li> •
 					<li><a href="<?php echo ROOT;?>flux">Mes Flux</a></li>
 				</ul>
 			</div>

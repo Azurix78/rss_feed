@@ -9,7 +9,12 @@ class setError
 	}
 	public function showError()
 	{
-		return "<div class='alert-error'>Erreur : ".$this->error."</div>";
+		return "<div id='alert' onclick='closealert()' class='alert-error'>Erreur : ".$this->error."</div>";
+	}
+
+	public function showSuccess()
+	{
+		return "<div id='alert' onclick='closealert()' class='alert-success'>Succès : ".$this->error."</div>";
 	}
 }
 ?>

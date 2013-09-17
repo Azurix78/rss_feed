@@ -14,10 +14,7 @@ class display
 		}
 		else
 		{
-			if(isset($error))
-			{
-				echo $error;
-			}
+			echo $error;
 			require_once('core/view/' . $view . '.php');
 		}
 	}

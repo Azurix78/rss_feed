@@ -169,7 +169,7 @@ nav li a:active
 	height: 30px;
 	line-height: 30px;
 	text-decoration: none;
-	color: #FF7A00;
+	color: #ECEEEE;
 }
 
 body
@@ -197,9 +197,10 @@ body
 	margin: 60px auto;
 	-webkit-box-shadow:  0px 20px 100px 15px #1C1B1C;
 	box-shadow:  0px 20px 20px 1px #1C1B1C;
-	background-color: #33333B;
-	-webkit-border-radius: 10px 10px 0px 0px;
-	border-radius: 10px 10px 0px 0px;
+	background-color: rgba(00,00,00,0.4);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	padding-bottom: 40px; 
 }
 
 .bar_titre
@@ -232,4 +233,112 @@ h1
 .article_full p
 {
 	padding: 0px 10px;
+}
+
+#gestion label
+{
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+	width: 200px;
+	display: inline-block;
+}
+
+#gestion legend
+{
+	padding: 5px 10px;
+}
+
+#gestion form
+{
+	width: 800px;
+	margin: 20px auto;
+	line-height: 30px;
+}
+
+#gestion fieldset
+{
+	border: solid 1px #FF7A00;
+	padding: 10px 10px 20px 10px;
+	border-radius: 5px;
+}
+
+.block input
+{
+	padding: 5px 10px;
+	font-size: 15px;
+	border-radius: 5px;
+	border: 1px solid #ECEEEE;
+}
+
+.block input:focus
+{
+	box-shadow: 0px 0px 10px #FF7A00;
+	outline:none;
+}
+
+.in_sub
+{
+	padding: 5px 20px;
+	background-color: #1C1B1C;
+	color: #FF7A00;
+	font-size: 20px;
+	border: solid 1px #FF7A00;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.in_sub:hover
+{
+	color: #ECEEEE;
+	border: solid 1px #ECEEEE;
+}
+
+.right
+{
+	width: 150px;
+	text-align: right;
+	display: inline-block;
+	float: right;
+}
+
+.left
+{
+	width: 600px;
+	float: left;
+	display: inline-block;
+}
+
+.alert-error
+{
+	height: 40px;
+	line-height: 40px;
+	background-color: #5D1812;
+	border-radius: 10px;
+	border: 2px solid red;
+	margin: 5px auto;
+	padding: 0 10px;
+	cursor: pointer;
+	position: fixed;
+	top: 45px;
+	right: 20%;
+	left: 20%;
+	z-index: 100;
+}
+
+.alert-success
+{
+	height: 40px;
+	line-height: 40px;
+	background-color: #047307;
+	border-radius: 10px;
+	border: 2px solid green;
+	margin: 5px auto;
+	padding: 0 10px;
+	cursor: pointer;
+	position: fixed;
+	top: 45px;
+	right: 20%;
+	left: 20%;
+	z-index: 100;
 }

@@ -14,9 +14,9 @@ function ins(id)
 }
 
 
-function closealert(id)
+function closealert()
 {
-		document.getElementById(id).style.display = "none";
+		document.getElementById('alert').style.display = "none";
 }
 
 
@@ -24,7 +24,7 @@ function deco(x)
 {
 	var a = document.getElementById(x);
 	old = a.innerHTML;
-	a.innerHTML="<a href='/rss_feed/logout'>Se d&eacute;connecter ?</a>";
+	a.innerHTML="<a href='/rss_feed/logout'>• Se d&eacute;connecter ?</a>";
 }
 
 function leavedeco(x)

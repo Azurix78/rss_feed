@@ -23,8 +23,7 @@ class connect
 			$user->register($pseudo, $pass);
 			$user->login($pseudo,$pass);
 
-			$view = new display();
-			$view->show('connect');
+			header("location:".ROOT);
 
 		}
 		else

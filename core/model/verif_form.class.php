@@ -27,7 +27,7 @@ class verif_form
 				}
 				else
 				{
-					return "Pseudo déjà prit.";
+					return "Pseudo déjà utilisé.";
 				}
 			}
 			else
@@ -51,6 +51,43 @@ class verif_form
 			else
 			{
 				return "Veuillez remplir tous les champs";
+			}
+		}
+		elseif($category == "pass")
+		{
+			if(isset($_POST['oldpass_edit']) AND isset($_POST['newpass_edit']) AND !empty($_POST['oldpass_edit']) AND !empty($_POST['newpass_edit']))
+			{
+				if(strlen($_POST['newpass_edit'])>=6)
+				{
+					return TRUE;
+				}
+				else
+				{
+					return "Le mot de passe doit faire au moins 6 charactères.";
+				}
+			}
+			else
+			{
+				return "Veuillez remplir tous les champs de la catégorie Mot de passe.";
+			}
+		}
+		elseif ($category == "pseudo")
+		{
+			if(isset($_POST['pseudo_edit']) AND !empty($_POST['pseudo_edit']))
+			{
+				if($this->isDispo($_POST['pseudo_edit'])===TRUE)
+				{
+					return TRUE;
+				}
+				else
+				{
+					return "Pseudo déjà utilisé.";
+				}
+					
+			}
+			else
+			{
+				return "Veuillez remplir tous les champs de la catégorie Pseudo.";
 			}
 		}
 	}

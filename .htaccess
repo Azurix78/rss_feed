@@ -8,3 +8,6 @@ RewriteRule ^connect$ index.php?c=connect&m=signin
 RewriteRule ^connect/inscription$ index.php?c=connect&m=inscription
 RewriteRule ^connect/login$ index.php?c=connect&m=login
 RewriteRule ^logout$ index.php?c=logout&m=deco
+RewriteRule ^gestion/edit$ index.php?c=gestion&m=edit
+RewriteRule ^gestion/pass$ index.php?c=gestion&m=pass
+RewriteRule ^gestion/pseudo$ index.php?c=gestion&m=pseudo
