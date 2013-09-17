@@ -11,8 +11,8 @@ class user
 	public function register($pseudo, $pass)
 	{
 		$req = $this->db->connect()->prepare("INSERT INTO membre (pseudo, password) VALUES (?,?)");
-		$req->bindParam(1, $pseudo);
-		$req->bindParam(2, $pass);
+		$req->bindParam(1, $pseudo, PDO::PARAM_STR);
+		$req->bindParam(2, $pass, PDO::PARAM_STR);
 		$req->execute();
 	}
 
@@ -24,9 +24,9 @@ class user
 	public function login($pseudo, $pass)
 	{
 		$req = $this->db->connect()->prepare("SELECT * FROM membre WHERE pseudo = ?");
-		$req->bindParam(1, $pseudo);
+		$req->bindParam(1, $pseudo, PDO::PARAM_STR);
 		$req->execute();
-		$res->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le résultat soit récupérable sous forme d'objet
+		$req->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le résultat soit récupérable sous forme d'objet
 		$login=$req->fetch();
 
 		if($login->pseudo == $pseudo)
@@ -39,7 +39,7 @@ class user
 			}
 			else
 			{
-				return "Mauvais login."
+				return "Mauvais login.";
 			}
 		}
 		else

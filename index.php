@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 define('ROOT', "/rss_feed/");
 
@@ -16,12 +17,9 @@ function my_autoloader($class)
 
 spl_autoload_register('my_autoloader');
 
-
-
 $controler =& $_GET['c'];
 $method =& $_GET['m'];
 
-session_start();
 
 if(isset($controler))
 {
@@ -35,7 +33,8 @@ if(isset($controler))
 		}
 		else
 		{
-			$page->view();
+			$page = new display();
+			$page->show('er404');
 		}
 	}
 	elseif(file_exists('core/controler/'.$controler.'.class.php') AND !isset($_SESSION['id']))
@@ -52,8 +51,8 @@ if(isset($controler))
 	}
 	else
 	{
-		$page = new er404();
-		$page->view();
+		$page = new display();
+		$page->show('er404');
 	}
 }
 ?>

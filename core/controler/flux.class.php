@@ -1,10 +1,10 @@
 <?php
 class flux
 {
-	public function lire()
+	public function liste()
 	{
-		$obj = new frontcontrol();
-		$obj->display('flux');
+		$view = new display();
+		$view->show('flux');	
 	}
 }
 ?>

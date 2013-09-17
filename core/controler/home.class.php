@@ -2,9 +2,8 @@
 
 class home
 {
-	public function view()
+	public function accueil()
 	{
-		require_once('core/model/display.class.php');
 		$view = new display();
 		$view->show('home');	
 	}

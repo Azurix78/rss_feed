@@ -35,6 +35,24 @@ class verif_form
 				return "Veuillez remplir tous les champs.";
 			}
 		}
+		elseif($category == "login")
+		{
+			if(isset($_POST['pseudo_log']) AND !empty($_POST['pseudo_log']) AND isset($_POST['pass_log']) AND !empty($_POST['pass_log']))
+			{
+				if(strlen($_POST['pass_log'])>=6)
+				{
+					return TRUE;
+				}
+				else
+				{
+					return "Mauvais login.";
+				}
+			}
+			else
+			{
+				return "Veuillez remplir tous les champs";
+			}
+		}
 	}
 
 	public function isDispo($pseudo)
@@ -57,7 +75,6 @@ class verif_form
 			}
 		}
 		return TRUE;
-
 	}
 }
 ?>

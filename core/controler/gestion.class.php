@@ -1,10 +1,10 @@
 <?php
 class gestion
 {
-	public function lire()
+	public function edit()
 	{
-		$obj = new frontcontrol();
-		$obj->display('gestion');
+		$view = new display();
+		$view->show('gestion');	
 	}
 }
 ?>

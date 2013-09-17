@@ -1,8 +1,10 @@
 RewriteEngine on
-RewriteRule ^$ index.php?c=home
-RewriteRule ^/$ index.php?c=home
-RewriteRule ^home$ index.php?c=home&m=lire
-RewriteRule ^gestion$ index.php?c=gestion&m=lire
-RewriteRule ^flux$ index.php?c=flux&m=lire
-RewriteRule ^connect$ index.php?c=connect
+RewriteRule ^$ index.php?c=home&m=accueil
+RewriteRule ^/$ index.php?c=home&m=accueil
+RewriteRule ^home$ index.php?c=home&m=accueil
+RewriteRule ^gestion$ index.php?c=gestion&m=edit
+RewriteRule ^flux$ index.php?c=flux&m=liste
+RewriteRule ^connect$ index.php?c=connect&m=signin
 RewriteRule ^connect/inscription$ index.php?c=connect&m=inscription
+RewriteRule ^connect/login$ index.php?c=connect&m=login
+RewriteRule ^logout$ index.php?c=logout&m=deco

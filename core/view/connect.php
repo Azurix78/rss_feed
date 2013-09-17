@@ -10,7 +10,10 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Bienvenue</h1>
+		<div class="article_full">
+			<div class="bar_titre">
+				<h1>Bienvenue</h1>
+			</div>
 			<p>My_RSS est un site n&eacute;c&eacute;ssitant un compte utilisateur.</p>
 			<p>Inscrivez-vous pour acceder au site.</p>
 			<input type="button" onclick="ins('inscription')" id="tog" class="btn" value="S'inscrire">
@@ -32,10 +35,13 @@
 					</fieldset>
 				</form>
 			</div>
+		
+			<div class="bar_end"></div>
+		</div>
 			<h1>D&eacute;j&agrave; inscrit ?</h1>
-			<form method="POST">
-				<label for="pseudo">Pseudo</label><input name="pseudo" type="text" id="pseudo">
-				<label for="mdp">Mot de passe</label><input name="mdp" type="password" id="mdp">
+			<form method="POST" action="<?php echo ROOT; ?>connect/login">
+				<label for="pseudo">Pseudo</label><input name="pseudo_log" type="text" id="pseudo">
+				<label for="mdp">Mot de passe</label><input name="pass_log" type="password" id="mdp">
 				<input type="submit" name="login" value="OK">
 			</from>
 		</div>
