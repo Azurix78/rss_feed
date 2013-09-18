@@ -309,6 +309,134 @@ h1
 	display: inline-block;
 }
 
+.flux_list
+{
+	width: 800px;
+	margin: 10px auto 0 auto;
+}
+
+
+
+.flux_gestion
+{
+	position: fixed;
+	overflow: auto;
+	width: 200px;
+	border-radius: 0px 0px 0px 20px;
+	top:100px;
+	bottom: 100px;
+	right: 0px;
+	margin: auto 0;
+	background-color: rgba(00,00,00,0.4);
+	padding-bottom: 10px;
+}
+
+.flux_gestion h2
+{
+	background-color: #1C1B1C;
+	color: #FF7A00;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 5px;
+	text-align: center;
+}
+
+#config
+{
+	position: absolute;
+	left: 5px;
+	width: 30px;
+	top: 5px;
+}
+
+#supprimer
+{
+	background-color: #FF7A00;
+	border-radius: 255px;
+	border: solid 2px #FF7A00;
+	height: 32px;
+	width: 32px;
+	color: #1C1B1C;
+	cursor: pointer;
+}
+
+#supprimer:hover
+{
+	box-shadow: 0px 0px 10px #FF7A00;
+	outline:none;
+}
+
+#sub_conf
+{
+	text-align: center;
+}
+
+.flux_gestion h3
+{
+	color: #ECEEEE;
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+
+.flux_gestion select
+{
+	height: 35px;
+	margin: 2px auto;
+	width: 125px;
+	line-height: 35px;
+	background-color: #ECEEEE;
+	border: 2px solid #FF7A00;
+	color: #1C1B1C;
+	text-align: center;
+	padding: 0 5px;
+}
+
+.flux_gestion select:focus
+{
+	border: 1px #FF7A00 solid;
+	outline:none;
+}
+
+#add_flux
+{
+	text-align: center;
+}
+
+.add_txt
+{
+	width: 115px;
+	height: 32px;
+	border-radius: 5px;
+	border: 2px green solid;
+	padding-left: 5px;
+}
+
+.add_txt:focus
+{
+	outline:none;
+	box-shadow: 0px 0px 10px green;
+	outline:none;
+}
+
+#add
+{
+	background-color: #047307;
+	border-radius: 255px;
+	border: solid 2px green;
+	height: 32px;
+	width: 32px;
+	color: #1C1B1C;
+	cursor: pointer;
+	float: right;
+}
+
+#add:hover
+{
+	box-shadow: 0px 0px 10px green;
+	outline:none;
+}
+
 .alert-error
 {
 	height: 40px;

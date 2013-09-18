@@ -46,7 +46,7 @@ class user
 		}
 		else
 		{
-			return "Mauvais login";
+			return "Mauvais login.";
 		}
 	}
 

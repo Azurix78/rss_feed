@@ -90,6 +90,24 @@ class verif_form
 				return "Veuillez remplir tous les champs de la catégorie Pseudo.";
 			}
 		}
+		elseif ($category == "add_flux")
+		{
+			if(isset($_POST['new_flux']) AND !empty($_POST['new_flux']))
+			{
+				if(@simplexml_load_file($_POST['new_flux'])!=FALSE)
+				{
+					return TRUE;
+				}
+				else
+				{
+					return "Lien invalide";
+				}
+			}
+			else
+			{
+				return "Veuillez remplir tous les champs de la catégorie Ajouter un flux.";
+			}
+		}
 	}
 
 	public function isDispo($pseudo)

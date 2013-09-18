@@ -3,7 +3,7 @@
 class display
 {
 
-	public function show($view, $error=NULL)
+	public function show($view, $data=NULL, $error=NULL)
 	{
 		if($view != 'connect')
 		{

@@ -43,12 +43,6 @@ q:before, q:after {
 	content: none;
 }
 
-/* remember to define visible focus styles! 
-:focus {
-	outline: ?????;
-} */
-
-/* remember to highlight inserts somehow! */
 ins {
 	text-decoration: none;
 }
@@ -136,6 +130,12 @@ input
 	font-size: 20px;
 	margin: 20px 0px;
 	cursor: pointer;
+}
+
+input:focus
+{
+	box-shadow: 0px 0px 10px #FF7A00;
+	outline:none;
 }
 
 #inscription
