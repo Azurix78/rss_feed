@@ -41,3 +41,8 @@ function verifsupp()
 {
 	return confirm("Supprimer ?");
 }
+
+function loading()
+{
+	document.getElementById('loading').style.display="block";
+}

@@ -1,16 +1,20 @@
 <div id="flux">
+	<?php
+	foreach ($data['article']->channel->item as $value)
+	{
+	?>
 	<div class="article_full">
 		<div class="bar_titre">
-			<h1>Selectionnez un Flux à afficher</h1>
+			<h1><a href="<?php echo $value->link;?>"><?php echo $value->title;?></a></h1><span class="date"><?php echo date("d/m/y H\hi", strtotime($value->pubDate))
+			;?></span>
 		</div>
 		<article>
-			<p>Vous pouvez ajouter un flux RSS grâce à l'encart "configuration".</p>
-			<p>Vous pouvez supprimer un flux RSS grâce à l'encart "configuration".</p>
-			<p>Accedez à vos Flux grâce à l'encart "menu".</p>
+			<p><?php echo $value->description;?></p>
 		</article>
 	</div>
-			
-			
+	<?php
+	}	
+	?>	
 	</div>
 	<div class="flux_gestion">
 		<h2><img id="config" src="<?php echo ROOT;?>media/img/config.png" alt="config">Configuration</h2>

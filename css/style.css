@@ -203,6 +203,15 @@ body
 	padding-bottom: 40px; 
 }
 
+.article_full img
+{
+	margin: 30px auto;
+	display: block;
+	border: 4px black solid;
+	max-width: 100%;
+	height: 100%;
+}
+
 .bar_titre
 {
 	-webkit-border-radius: 10px 10px 0px 0px;
@@ -228,6 +237,24 @@ h1
 	color: #FF7A00;
 	font-size: 20px;
 	padding: 0px 10px;
+	width: 600px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	height: 50px;
+}
+
+.article_full a
+{
+	text-decoration: none;
+	color: rgb(37, 182, 218);
+
+}
+
+.article_full h1>a
+{
+	text-decoration: none;
+	color: #FF7A00;
 }
 
 .article_full p
@@ -324,11 +351,11 @@ h1
 	width: 200px;
 	border-radius: 0px 0px 0px 20px;
 	top:100px;
-	bottom: 100px;
 	right: 0px;
 	margin: auto 0;
 	background-color: rgba(00,00,00,0.4);
 	padding-bottom: 10px;
+	min-height: 300px;
 }
 
 .flux_gestion h2
@@ -339,6 +366,80 @@ h1
 	line-height: 40px;
 	padding: 0 5px;
 	text-align: center;
+}
+
+
+.select_flux
+{
+	position: fixed;
+	overflow: auto;
+	width: 200px;
+	border-radius: 0px 0px 20px 0px;
+	top:100px;
+	left: 0px;
+	margin: auto 0;
+	background-color: rgba(00,00,00,0.4);
+	padding-bottom: 10px;
+	min-height: 300px;
+}
+
+.select_flux h2
+{
+	background-color: #1C1B1C;
+	color: #FF7A00;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 5px;
+	text-align: center;
+}
+
+#loading
+{
+	position: fixed;
+	display: none;
+	top:45px;
+	right: 100px;
+	left: 100px;
+	width: 463px;
+	margin: 0px auto;
+	background-color: black;
+	border-radius: 10px;
+	line-height: 10px;
+}
+
+#loading img
+{
+	height: 40px;
+	z-index: 0;
+}
+
+.select_flux a
+{
+	height: 30px;
+	padding: 5px 15px;
+	background-color: #1C1B1C;
+	text-decoration: none;
+	color: rgb(37, 182, 218);
+	display: block;
+	margin: 5px auto;
+	width: 150px;
+	line-height: 30px;
+	border-radius: 10px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	-webkit-transition: all 200ms ease-in-out;
+	-moz-transition: all 200ms ease-in-out;
+	-ms-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
+
+}
+
+.select_flux a:hover
+{
+	background-color: black;
+	color: #FF7A00;
 }
 
 #config
@@ -377,6 +478,7 @@ h1
 	height: 30px;
 	line-height: 30px;
 	font-size: 15px;
+	margin-top: 10px;
 }
 
 .flux_gestion select
@@ -410,6 +512,9 @@ h1
 	border-radius: 5px;
 	border: 2px green solid;
 	padding-left: 5px;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 10px;
 }
 
 .add_txt:focus
@@ -429,6 +534,8 @@ h1
 	color: #1C1B1C;
 	cursor: pointer;
 	float: right;
+	vertical-align: top;
+	margin-right: 17px;
 }
 
 #add:hover
@@ -436,6 +543,21 @@ h1
 	box-shadow: 0px 0px 10px green;
 	outline:none;
 }
+
+.date
+{
+	position: absolute;
+	right: 10px;
+	top: 15px;
+	font-size: 10px;
+}
+
+article
+{
+	padding: 10px 20px;
+}
+
+
 
 .alert-error
 {

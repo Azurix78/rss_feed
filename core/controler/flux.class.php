@@ -7,10 +7,21 @@ class flux
 		$user =& $_SESSION['id'];
 		$flux = new fluxRSS();
 		$list_flux=$flux->getFlux($user);
+		$link=$flux->getLink($user);
 		$view = new display();
 		$data[] = array();
 		$data['flux'] = $list_flux;
-		$view->show('flux',$data);	
+		$data['link'] = $link;
+		if(isset($_GET['id']))
+		{
+			$article=$flux->getItem($_GET['id']);
+			$data['article'] = $article;
+			$view->show('article',$data);
+		}
+		else
+		{
+			$view->show('flux',$data);	
+		}	
 	}
 
 	public function add()
@@ -22,16 +33,15 @@ class flux
 			$adresse =& $_POST['new_flux'];
 			$nom =& $_POST['nom'];
 			$user =& $_SESSION['id'];
-
-
 			$flux = new fluxRSS();
-			$flux->add_flux($nom,$adresse,$user);
+			$flux->add_flux($nom,$adresse,$user,1);
 			$list_flux=$flux->getFlux($user);
 			$setError = new setError("Flux ajouté.");
 			$success = $setError->showSuccess();
 			$view = new display();
 			$data[] = array();
 			$data['flux'] = $list_flux;
+			if(isset($link)){ $data['link'] = $link; }
 			$view->show('flux',$data,$success);
 		}
 		else
@@ -41,9 +51,11 @@ class flux
 			$error = $setError->showError();
 			$flux = new fluxRSS();
 			$list_flux=$flux->getFlux($user);
+			$link=$flux->getLink($user);
 			$view = new display();
 			$data[] = array();
 			$data['flux'] = $list_flux;
+			$data['link'] = $link;
 			$view->show('flux',$data, $error);
 		}
 
@@ -52,28 +64,36 @@ class flux
 	public function supprimer()
 	{
 		$verif_form = new verif_form;
-		$valid = $verif_form->isFull("add_flux");
+		$valid = $verif_form->isFull("del_flux");
 		if($valid === TRUE)
 		{
-			$adresse =& $_POST['new_flux'];
 			$nom =& $_POST['nom'];
 			$user =& $_SESSION['id'];
-
-
 			$flux = new fluxRSS();
-			$flux->add_flux($nom,$adresse,$user);
-			$setError = new setError("Flux ajouté.");
+			$flux->delFlux($nom,$user);
+			$setError = new setError("Flux supprimé.");
 			$success = $setError->showSuccess();
+			$list_flux=$flux->getFlux($user);
+			$link=$flux->getLink($user);
 			$view = new display();
-			$view->show('flux',$success);
+			$data[] = array();
+			$data['flux'] = $list_flux;
+			$data['link'] = $link;
+			$view->show('flux', $data,$success);
 		}
 		else
 		{
 			$setError = new setError($valid);
 			$error = $setError->showError();
-
+			$user =& $_SESSION['id'];
+			$flux = new fluxRSS();
+			$list_flux=$flux->getFlux($user);
+			$link=$flux->getLink($user);
 			$view = new display();
-			$view->show('flux',$error);
+			$data[] = array();
+			$data['flux'] = $list_flux;
+			$data['link'] = $link;
+			$view->show('flux',$data,$error);
 		}
 
 	}

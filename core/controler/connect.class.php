@@ -6,7 +6,7 @@ class connect
 	public function signin()
 	{
 		$view = new display();
-		$view->show('connect');
+		$view->show('connect', NULL, NULL);
 	}
 
 	public function inscription()
@@ -32,7 +32,7 @@ class connect
 			$error = $setError->showError();
 
 			$view = new display();
-			$view->show('connect',$error);
+			$view->show('connect',NULL,$error);
 
 		}
 
@@ -59,7 +59,7 @@ class connect
 				$setError = new setError($login);
 				$error = $setError->showError();
 				$view = new display();
-				$view->show('connect',$error);
+				$view->show('connect',NULL,$error);
 			}
 		}
 		else
@@ -67,7 +67,7 @@ class connect
 			$setError = new setError($valid);
 			$error = $setError->showError();
 			$view = new display();
-			$view->show('connect',$error);
+			$view->show('connect',NULL,$error);
 		}
 	}
 	

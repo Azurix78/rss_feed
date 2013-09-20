@@ -92,15 +92,41 @@ class verif_form
 		}
 		elseif ($category == "add_flux")
 		{
-			if(isset($_POST['new_flux']) AND !empty($_POST['new_flux']))
+			if(isset($_POST['new_flux']) AND !empty($_POST['new_flux']) AND isset($_POST['nom']) AND !empty($_POST['nom']))
 			{
-				if(@simplexml_load_file($_POST['new_flux'])!=FALSE)
+				if($this->exist_flux("nom",$_POST['nom'],$_SESSION['id']) === FALSE)
+				{
+					if(@simplexml_load_file($_POST['new_flux'])!=FALSE)
+					{
+						return TRUE;
+					}
+					else
+					{
+						return "Lien invalide";
+					}
+				}
+				else
+				{
+					return "Vous avez déjà un flux qui porte ce nom.";
+				}
+				
+			}
+			else
+			{
+				return "Veuillez remplir tous les champs de la catégorie Ajouter un flux.";
+			}
+		}
+		elseif ($category == "del_flux")
+		{
+			if(isset($_POST['nom']) AND !empty($_POST['nom']))
+			{
+				if($this->exist_flux("nom",$_POST['nom'],$_SESSION['id']) === TRUE)
 				{
 					return TRUE;
 				}
 				else
 				{
-					return "Lien invalide";
+					return "Ce flux n'existe pas.";
 				}
 			}
 			else
@@ -130,6 +156,23 @@ class verif_form
 			}
 		}
 		return TRUE;
+	}
+
+	public function exist_flux($champ,$var,$id)
+	{
+		$req=$this->db->connect()->prepare("SELECT ? FROM flux WHERE $champ = ? AND id_user = ?");
+		$req->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le résultat soit récupérable sous forme d'objet
+		$req->bindParam(1, $champ, PDO::PARAM_STR);
+		$req->bindParam(2, $var, PDO::PARAM_STR);
+		$req->bindParam(3, $id, PDO::PARAM_INT);
+		$req->execute();
+		$req->setFetchMode(PDO::FETCH_OBJ);
+		$flux = $req->fetch();
+		if($flux!=FALSE)
+		{
+			return TRUE;
+		}
+		return FALSE;
 	}
 }
 ?>

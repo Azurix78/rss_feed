@@ -16,4 +16,6 @@ RewriteRule ^flux$ index.php?c=flux&m=liste
 RewriteRule ^flux/$ index.php?c=flux&m=liste
 RewriteRule ^flux/add$ index.php?c=flux&m=add
 RewriteRule ^flux/supprimer$ index.php?c=flux&m=supprimer
+RewriteRule ^flux/([0-9]+)$ index.php?c=flux&m=liste&id=$1
+
 RewriteRule ^logout$ index.php?c=logout&m=deco
