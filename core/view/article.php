@@ -52,9 +52,17 @@
 			foreach ($data['link'] as $value)
 			{
 			?>
-				<a onclick="loading()" href="<?php echo ROOT;?>flux/<?php echo $value['id'];?>"><?php echo $value['nom'];?></a>
+				<a onclick="loading()" href="<?php echo ROOT;?>flux/<?php echo $value['id'];?>">
+					<?php if($value['new']==1){echo 'NEW : '.$value['nom'];}elseif($value['hot']==1){echo 'HOT : '.$value['nom'];}else{echo $value['nom'];}?>
+				</a>
 			<?php
 			}
+		}
+		else
+		{
+			?>
+			<p>Vous n'avez pas ajouté de flux.</p>
+			<?php
 		}
 		?>
 	</div>

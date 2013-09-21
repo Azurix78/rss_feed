@@ -6,20 +6,42 @@ class flux
 	{
 		$user =& $_SESSION['id'];
 		$flux = new fluxRSS();
-		$list_flux=$flux->getFlux($user);
-		$link=$flux->getLink($user);
 		$view = new display();
 		$data[] = array();
-		$data['flux'] = $list_flux;
-		$data['link'] = $link;
 		if(isset($_GET['id']))
 		{
+			$flux->setOld($_GET['id']);
+			$list_flux=$flux->getFlux($user);
+			$link=$flux->getLink($user);
 			$article=$flux->getItem($_GET['id']);
+			$data['flux'] = $list_flux;
+
+			if(isset($link))
+			{
+				$data['link'] = $link;
+				foreach ($data['link'] as $value)
+				{
+					$flux->isHot($value['adresse'],$value['id']);
+				}
+			}
+			
 			$data['article'] = $article;
 			$view->show('article',$data);
+			$flux->setOld($_GET['id']);
 		}
 		else
 		{
+			$list_flux=$flux->getFlux($user);
+			$link=$flux->getLink($user);
+			if(isset($link))
+			{
+				$data['link'] = $link;
+				foreach ($data['link'] as $value)
+				{
+					$flux->isHot($value['adresse'],$value['id']);
+				}
+			}
+			$data['flux'] = $list_flux;
 			$view->show('flux',$data);	
 		}	
 	}
@@ -36,12 +58,20 @@ class flux
 			$flux = new fluxRSS();
 			$flux->add_flux($nom,$adresse,$user,1);
 			$list_flux=$flux->getFlux($user);
+			$link=$flux->getLink($user);
 			$setError = new setError("Flux ajouté.");
 			$success = $setError->showSuccess();
 			$view = new display();
 			$data[] = array();
 			$data['flux'] = $list_flux;
-			if(isset($link)){ $data['link'] = $link; }
+			if(isset($link))
+			{
+				$data['link'] = $link;
+				foreach ($data['link'] as $value)
+				{
+					$flux->isHot($value['adresse'],$value['id']);
+				}
+			}
 			$view->show('flux',$data,$success);
 		}
 		else
@@ -55,7 +85,14 @@ class flux
 			$view = new display();
 			$data[] = array();
 			$data['flux'] = $list_flux;
-			$data['link'] = $link;
+			if(isset($link))
+			{
+				$data['link'] = $link;
+				foreach ($data['link'] as $value)
+				{
+					$flux->isHot($value['adresse'],$value['id']);
+				}
+			}
 			$view->show('flux',$data, $error);
 		}
 
@@ -78,7 +115,14 @@ class flux
 			$view = new display();
 			$data[] = array();
 			$data['flux'] = $list_flux;
-			$data['link'] = $link;
+			if(isset($link))
+			{
+				$data['link'] = $link;
+				foreach ($data['link'] as $value)
+				{
+					$flux->isHot($value['adresse'],$value['id']);
+				}
+			}
 			$view->show('flux', $data,$success);
 		}
 		else
@@ -92,7 +136,14 @@ class flux
 			$view = new display();
 			$data[] = array();
 			$data['flux'] = $list_flux;
-			$data['link'] = $link;
+			if(isset($link))
+			{
+				$data['link'] = $link;
+				foreach ($data['link'] as $value)
+				{
+					$flux->isHot($value['adresse'],$value['id']);
+				}
+			}
 			$view->show('flux',$data,$error);
 		}
 

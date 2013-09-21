@@ -413,6 +413,12 @@ h1
 	z-index: 0;
 }
 
+.select_flux p
+{
+	padding: 50px 10px;
+	text-align: center;
+}
+
 .select_flux a
 {
 	height: 30px;
